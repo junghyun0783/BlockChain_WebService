@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/header::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+		</th:block>
+</th:block>
+
+<!-- *********************************************************************************************************************** -->
+
+<!-- Section-->
+
+<section class="py-5">
+	<div class="container px-5 px-lg-5 mt-5">
+		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+<!--
+				<span>
+				<a th:href="@{/product/register}" >
+					<button type="button" class="btn btn-outline-warning" align="center">
+						상품 등록
+					</button>
+				</a>
+			</span> -->
+			<!--상품 -->
+			<div class="col mb-5" th:each="dto : ${result.dtoList}">
+				<a th:href="@{/product/read(pnum=${dto.pnum})}" style="text-decoration: none; color: #1c1f23">
+					<div class="card h-100">
+						<!-- Product image  " style="width:205px; height:150px;" -->
+						<img class="card-img-top" th:src= "@{/images/}+${dto.thumb}" alt="..." style=" height:160px;" /> <!-- /image/1.jpg -->
+						<!-- Product details-->
+
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Product name-->
+								<h5 class="fw-bolder">[[${dto.name}]]</h5>
+								<!-- Product reviews-->
+								<div class="d-flex justify-content-center small text-warning mb-2">
+									<!--
+										<div class="bi-star-fill"></div>
+										<div class="bi-star-fill"></div>
+										<div class="bi-star-fill"></div>
+										<div class="bi-star-fill"></div>
+										<div class="bi-star-fill"></div>
+										-->
+								</div>
+								<!-- Product price-->
+								[[${dto.price}]]원
+							</div>
+
+							<div class="text-center">
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+					<!-- Product actions
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                    </div>
+                    -->
+				</div>
+
+
+
+			<!-- 섹션 끝-->
+
+		</div>
+	</div>
+</section>
+
+</html>
+
+
+
+<th:block th:replace="~{/layout/footer::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+	</th:block>
+</th:block>

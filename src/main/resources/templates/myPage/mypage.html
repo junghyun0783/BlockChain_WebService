@@ -1,0 +1,46 @@
+<!-- Header -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.w3.org/1999/xhtml">
+<th:block th:replace="~{/layout/header::setContent(~{this::content})}">
+   <th:block th:fragment="content">w
+      </th:block>
+</th:block>
+
+<!-- 자신의 코드 작성-->
+<br><br><br><br>
+
+		<div align="center">
+			<button class="address_btn_1" onclick="location.href='/myPage/chargeConfirm'">충전 내역 조회</button><br><br><br>
+			<button class="address_btn_1" onclick="location.href='/myPage/tradeConfirm'">거래 내역 조회</button><br><br><br>
+			<button class="address_btn_1" onclick="location.href='/member/modify'">회원정보 수정</button><br><br><br>
+			<button sec:authorize="hasRole('ROLE_ADMIN')" class="address_btn address_btn_3" onclick="location.href='/admin/chargeRequestList'">충전 승인</button>
+			
+		</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+<!-- Footer -->
+<th:block th:replace="~{/layout/footer::setContent(~{this::content})}">
+   <th:block th:fragment="content">
+   </th:block>
+</th:block>
+
+   <style>
+   
+    button.address_btn_1{
+			color : white;
+			font-weight: bold;
+			background-color: #481677;
+			border-color :#6667AB;
+			width: 300px;
+			height: 60px;
+			 border-radius : 10px;
+			 font-size: 20px;
+			}
+
+
+   </style>
